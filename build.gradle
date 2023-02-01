@@ -47,7 +47,7 @@ tasks.withType(JavaCompile).configureEach {
 dependencies {
 
 	// Nullable annotation
-	implementation (group: 'org.eclipse.jdt', name: 'org.eclipse.jdt.annotation', version: '1.1.0')
+	implementation (group: 'org.eclipse.jdt', name: 'org.eclipse.jdt.annotation', version: '2.2.700')
 
 	// Spigot/Bukkit
 	implementation (group: 'org.spigotmc', name: 'spigot', version: '1.19.3-R0.1-SNAPSHOT')
@@ -58,8 +58,8 @@ dependencies {
 
 	// Netty (Network framework Minecraft uses)
 	implementation (group: 'io.netty', name: 'netty-all', version: '4.0.23.Final')
-	implementation (group: 'io.netty', name: 'netty-transport', version: '4.1.77.Final')
-	implementation (group: 'io.netty', name: 'netty-common', version: '4.1.77.Final')
+	implementation (group: 'io.netty', name: 'netty-transport', version: '4.1.87.Final')
+	implementation (group: 'io.netty', name: 'netty-common', version: '4.1.87.Final')
 
 	// Mojang
 	implementation (group: 'com.mojang', name: 'authlib', version: '1.5.21')

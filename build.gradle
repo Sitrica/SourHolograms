@@ -1,0 +1,79 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+	id 'com.github.johnrengelman.shadow' version '7.1.2'
+	id 'java-library'
+	id 'java'
+}
+
+repositories {
+	mavenCentral()
+
+	// Spigot
+	maven {
+		url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+	}
+
+	// Bungeecord Chat API
+	maven {
+		url 'https://oss.sonatype.org/content/repositories/snapshots'
+	}
+
+	// ProtocolLib
+	maven {
+		url 'https://repo.dmulloy2.net/repository/public/'
+	}
+
+	// NMS
+	maven {
+		url 'https://repo.codemc.io/repository/nms/'
+	}
+
+	// Mojang
+	maven {
+		url 'https://libraries.minecraft.net/'
+	}
+
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile).configureEach {
+	options.compilerArgs += ['-source', '' + 8, '-target', '' + 8]
+}
+
+dependencies {
+
+	// Nullable annotation
+	implementation (group: 'org.eclipse.jdt', name: 'org.eclipse.jdt.annotation', version: '1.1.0')
+
+	// Spigot/Bukkit
+	implementation (group: 'org.spigotmc', name: 'spigot', version: '1.19.3-R0.1-SNAPSHOT')
+
+	// ProtocolLib
+	shadow (group: 'com.comphenix.packetwrapper', name: 'PacketWrapper', version: '1.13-R0.1-SNAPSHOT')
+	implementation (group: 'com.comphenix.protocol', name: 'ProtocolLib', version: '4.8.0')
+
+	// Netty (Network framework Minecraft uses)
+	implementation (group: 'io.netty', name: 'netty-all', version: '4.0.23.Final')
+	implementation (group: 'io.netty', name: 'netty-transport', version: '4.1.77.Final')
+	implementation (group: 'io.netty', name: 'netty-common', version: '4.1.77.Final')
+
+	// Mojang
+	implementation (group: 'com.mojang', name: 'authlib', version: '1.5.21')
+
+}
+
+processResources {
+	filter ReplaceTokens, tokens: ['version': project.property('version')]
+}
+
+shadowJar {
+	configurations = [project.configurations.shadow]
+	archiveVersion = version
+	baseName = project.name
+	classifier = ''
+	minimize()
+}

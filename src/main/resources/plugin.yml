@@ -1,0 +1,7 @@
+name: SourHolograms
+authors: [LimeGlass]
+description: The bitter sweet hologram plugin.
+version: @version@
+api-version: 1.13
+main: com.sitrica.sourholograms.SourHolograms
+softdepend: [ProtocolLib]

@@ -54,7 +54,7 @@ public class ProtocolLibNMS_1_19_R2 implements PlatformNMS<ProtocolLibPlayerRefe
 		return INSTANCE;
 	}
 
-	protected ProtocolLibPlayerReference[] getReference(Player... players) {
+	public ProtocolLibPlayerReference[] getReference(Player... players) {
 		ProtocolLibPlayerReference[] references = new ProtocolLibPlayerReference[players.length];
 		for (int i = 0; i < players.length; i++)
 			references[i] = new ProtocolLibPlayerReference(players[i]);

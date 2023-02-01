@@ -63,7 +63,7 @@ public class BukkitNMS implements PlatformNMS<BukkitPlayerReference> {
 			protocol.close();
 	}
 
-	protected BukkitPlayerReference[] getReference(Player... players) {
+	public BukkitPlayerReference[] getReference(Player... players) {
 		BukkitPlayerReference[] references = new BukkitPlayerReference[players.length];
 		for (int i = 0; i < players.length; i++)
 			references[i] = new BukkitPlayerReference(players[i]);

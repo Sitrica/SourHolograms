@@ -1,7 +1,6 @@
 package com.sitrica.sourholograms;
 
-import org.eclipse.jdt.annotation.Nullable;
-
+import com.sitrica.sourholograms.managers.HologramManager;
 import com.sitrica.sourholograms.objects.EntityReference;
 import com.sitrica.sourholograms.objects.PlayerReference;
 import com.sitrica.sourholograms.objects.Position;
@@ -76,15 +75,15 @@ public interface Platform {
 	 */
 	Version getPlatformVersion();
 
-	/**
-	 * Returns the NMS with casting potential.
-	 * @param <P>
-	 * 
-	 * @param <T extends PlatformNMS> The class that implements PlatformNMS
-	 * @return The NMS class.
-	 */
-	@Nullable
-	<P extends PlayerReference, T extends PlatformNMS<P>> T getNMS();
+//	/**
+//	 * Returns the NMS with casting potential.
+//	 * @param <P>
+//	 * 
+//	 * @param <T extends PlatformNMS> The class that implements PlatformNMS
+//	 * @return The NMS class.
+//	 */
+//	@Nullable
+//	<P extends PlayerReference, T extends PlatformNMS<P>> T getNMS();
 
 	/**
 	 * The enum type that this platform instance represents.
@@ -99,7 +98,7 @@ public interface Platform {
 	 * @param <API extends PlatformAPI>
 	 * @return PlatformAPI
 	 */
-	<API extends PlatformAPI> API getPlatformAPI();
+	<API extends PlatformAPI<?>> API getPlatformAPI();
 
 	/**
 	 * Used internally.
@@ -108,5 +107,14 @@ public interface Platform {
 	default void setPlatform(Platform platform) throws IllegalAccessException {
 		SourHologramsAPI.setPlatform(this);
 	}
+
+	/**
+	 * Prints a message to the console on this platform.
+	 * 
+	 * @param message The String message to print to the console.
+	 */
+	void printMessage(String message);
+
+	HologramManager getHologramManager();
 
 }

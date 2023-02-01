@@ -3,5 +3,5 @@ authors: [LimeGlass]
 description: The bitter sweet hologram plugin.
 version: @version@
 api-version: 1.13
-main: com.sitrica.sourholograms.SourHolograms
+main: com.sitrica.sourholograms.bukkit.SourHologramsBukkit
 softdepend: [ProtocolLib]

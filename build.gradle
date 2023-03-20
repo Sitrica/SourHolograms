@@ -50,7 +50,7 @@ dependencies {
 	implementation (group: 'org.eclipse.jdt', name: 'org.eclipse.jdt.annotation', version: '2.2.700')
 
 	// Spigot/Bukkit
-	implementation (group: 'org.spigotmc', name: 'spigot', version: '1.19.3-R0.1-SNAPSHOT')
+	implementation (group: 'org.spigotmc', name: 'spigot', version: '1.19.4-R0.1-SNAPSHOT')
 
 	// ProtocolLib
 	shadow (group: 'com.comphenix.packetwrapper', name: 'PacketWrapper', version: '1.13-R0.1-SNAPSHOT')

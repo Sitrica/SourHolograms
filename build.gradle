@@ -59,7 +59,7 @@ dependencies {
 	// Netty (Network framework Minecraft uses)
 	implementation (group: 'io.netty', name: 'netty-all', version: '4.1.89.Final')
 	implementation (group: 'io.netty', name: 'netty-transport', version: '4.1.89.Final')
-	implementation (group: 'io.netty', name: 'netty-common', version: '4.1.89.Final')
+	implementation (group: 'io.netty', name: 'netty-common', version: '4.1.91.Final')
 
 	// Mojang
 	implementation (group: 'com.mojang', name: 'authlib', version: '1.5.21')
